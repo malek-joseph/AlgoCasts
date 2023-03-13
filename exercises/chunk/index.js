@@ -8,6 +8,25 @@
 // chunk([1, 2, 3, 4, 5], 4) --> [[ 1, 2, 3, 4], [5]]
 // chunk([1, 2, 3, 4, 5], 10) --> [[ 1, 2, 3, 4, 5]]
 
-function chunk(array, size) {}
+function chunk(array, size) {
+  const chunked = []
+
+  for (let element of array) {
+
+    const last = chunked[chunked.length - 1]
+
+    if (!last || last.length === size) {
+      // This step creates a sub-array in chunked an push the element in it, just in one step
+      chunked.push([element])
+    } else {
+      last.push(element)
+    }
+
+  }
+  return chunked
+
+}
+
+
 
 module.exports = chunk;
